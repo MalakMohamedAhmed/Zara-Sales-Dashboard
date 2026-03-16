@@ -171,7 +171,7 @@ with cat_mat_container:
 
 # --- Data Preview Section ---
 st.markdown("---") # Add a separator line
-with st.expander("🔍 View Filtered Raw Data"):
+with st.expander("View Filtered Raw Data"):
     st.write(f"Showing {filtered_df.shape[0]} rows and {filtered_df.shape[1]} columns")
     
     # Display the dataframe with a search/filter feature
