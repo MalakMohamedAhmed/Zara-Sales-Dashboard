@@ -31,11 +31,16 @@ selected_countries = st.sidebar.multiselect(
     options=all_countries, 
     default=all_countries
 )
-
+if not selected_countries:
+    selected_countries = all_countries
 
 # Gender Filter
 all_sections = sorted(df['Section'].unique().tolist())
-selected_sections = st.sidebar.multiselect("Select Section", options=all_sections, default=all_sections)
+selected_sections = st.sidebar.multiselect(
+    "Select Section", 
+    options=all_sections, 
+    default=all_sections
+)
 if not selected_sections:
     selected_sections = all_sections
 
