@@ -72,9 +72,9 @@ plt.rcParams.update({
     "text.color": "white"
 })
 #Distribution Analysis
-dist_container = st.container()
+dist_rev_container = st.container()
 
-with dist_container:
+with dist_rev_container:
     st.subheader("Distributions Analysis")
     col_dist1, col_dist2 = st.columns(2)
     chart_size = (6, 4)
@@ -86,7 +86,11 @@ with dist_container:
         fig1.patch.set_alpha(0)
         ax1.set_facecolor((0, 0, 0, 0))
         st.pyplot(fig1, clear_figure=True) 
-    st.divider()
+    
+st.divider()
+
+dist_price_container = st.container()
+with dist_price_container:
     with col_dist2:
         fig2, ax2 = plt.subplots(figsize=(5, 4))
         sns.kdeplot(data=filtered_df, x='revenue', fill=True, color='#e74c3c', ax=ax2)
