@@ -72,10 +72,10 @@ plt.rcParams.update({
     "text.color": "white"
 })
 #Distribution Analysis
+st.subheader("Revenue Distributions Analysis")
 dist_rev_container = st.container()
 
 with dist_rev_container:
-    st.subheader("Distributions Analysis")
     col_dist1, col_dist2 = st.columns(2)
     chart_size = (6, 4)
     
@@ -89,6 +89,7 @@ with dist_rev_container:
     
 st.divider()
 
+st.subheader("Price Distributions Analysis")
 dist_price_container = st.container()
 with dist_price_container:
     with col_dist2:
