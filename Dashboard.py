@@ -86,7 +86,7 @@ with dist_container:
         fig1.patch.set_alpha(0)
         ax1.set_facecolor((0, 0, 0, 0))
         st.pyplot(fig1, clear_figure=True) 
-
+    st.divider()
     with col_dist2:
         fig2, ax2 = plt.subplots(figsize=(5, 4))
         sns.kdeplot(data=filtered_df, x='revenue', fill=True, color='#e74c3c', ax=ax2)
