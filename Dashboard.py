@@ -76,7 +76,7 @@ st.subheader("Revenue Distributions Analysis")
 dist_rev_container = st.container()
 
 with dist_rev_container:
-    col_dist1, col_dist2 = st.columns(2)
+    col_dist1 = st.columns(1)
     chart_size = (6, 4)
     
     with col_dist1:
@@ -92,6 +92,9 @@ st.divider()
 st.subheader("Price Distributions Analysis")
 dist_price_container = st.container()
 with dist_price_container:
+    col_dist2 = st.columns(1)
+    chart_size = (6, 4)
+    
     with col_dist2:
         fig2, ax2 = plt.subplots(figsize=(5, 4))
         sns.kdeplot(data=filtered_df, x='revenue', fill=True, color='#e74c3c', ax=ax2)
