@@ -72,37 +72,30 @@ plt.rcParams.update({
     "text.color": "white"
 })
 
-#Revenue Distribution Analysis
-st.subheader("Revenue Distributions Analysis")
-dist_rev_container = st.container()
-c1, c2, c3 = st.columns([2, 3, 2])
+#Distribution Analysis
+dist_container = st.container()
 
-with dist_rev_container:
-    fig1, ax1 = plt.subplots(figsize=(5, 3))
-    chart_size = (3, 2)
+with dist_container:
+    st.subheader("Distributions Analysis")
+    col_dist1, col_dist2 = st.columns(2)
+    chart_size = (6, 4)
     
-    sns.kdeplot(data=filtered_df, x='Price', fill=True, color='#3498db', ax=ax1)
-    plt.subplots_adjust(left=0.15, right=0.95, top=0.9, bottom=0.15)
-    fig1.patch.set_alpha(0)
-    ax1.set_facecolor((0, 0, 0, 0))
-    st.pyplot(fig1, clear_figure=True) 
-    
-st.divider()
+    with col_dist1:
+        fig1, ax1 = plt.subplots(figsize=(5, 4))
+        sns.kdeplot(data=filtered_df, x='Price', fill=True, color='#3498db', ax=ax1)
+        plt.subplots_adjust(left=0.15, right=0.95, top=0.9, bottom=0.15)
+        fig1.patch.set_alpha(0)
+        ax1.set_facecolor((0, 0, 0, 0))
+        st.pyplot(fig1, clear_figure=True) 
 
-st.subheader("Price Distributions Analysis")
-dist_price_container = st.container()
-r1, r2, r3 = st.columns([2, 3, 2])
-
-with dist_price_container:
-    chart_size = (4, 3)
-    
-    fig2, ax2 = plt.subplots(figsize=(5, 3))
-    sns.kdeplot(data=filtered_df, x='revenue', fill=True, color='#e74c3c', ax=ax2)
-    plt.subplots_adjust(left=0.15, right=0.95, top=0.9, bottom=0.15)
-    fig2.patch.set_alpha(0)
-    ax2.set_facecolor((0, 0, 0, 0))
-    ax2.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, loc: f"{x/1e6:.1f}M"))
-    st.pyplot(fig2, clear_figure=True)
+    with col_dist2:
+        fig2, ax2 = plt.subplots(figsize=(5, 4))
+        sns.kdeplot(data=filtered_df, x='revenue', fill=True, color='#e74c3c', ax=ax2)
+        plt.subplots_adjust(left=0.15, right=0.95, top=0.9, bottom=0.15)
+        fig2.patch.set_alpha(0)
+        ax2.set_facecolor((0, 0, 0, 0))
+        ax2.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, loc: f"{x/1e6:.1f}M"))
+        st.pyplot(fig2, clear_figure=True)
 
 st.divider()
 
