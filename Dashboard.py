@@ -7,6 +7,10 @@ import seaborn as sns
 # Set page config
 st.set_page_config(page_title="Zara Sales Dashboard", layout="wide")
 
+logo_url = "https://upload.wikimedia.org/wikipedia/commons/f/fd/Zara_Logo.svg"
+st.sidebar.image(logo_url, use_container_width=True)
+st.sidebar.markdown("---")
+
 # Some helper funstions
 @st.cache_data
 def load_data():
