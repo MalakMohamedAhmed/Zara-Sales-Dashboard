@@ -29,13 +29,31 @@ selected_countries = st.sidebar.multiselect(
     default=all_countries
 )
 
-if not selected_countries:
-    selected_countries = all_countries
-    st.sidebar.info("Showing all countries by default.")
+st.divider()
 
-filtered_df = df[df['Origin'].isin(selected_countries)]
+# Gender Filter
+all_sections = sorted(df['Section'].unique().tolist())
+selected_sections = st.sidebar.multiselect("Select Section", options=all_sections, default=all_sections)
+if not selected_sections:
+    selected_sections = all_sections
 
+# Price range filter
+min_price = float(df['Price'].min())
+max_price = float(df['Price'].max())
+price_range = st.sidebar.slider(
+    "Select Price Range",
+    min_value=min_price,
+    max_value=max_price,
+    value=(min_price, max_price) # Default is the full range
+)
 
+# new filtered data frame to affect all the next charts
+filtered_df = df[
+    (df['Origin'].isin(selected_countries)) &
+    (df['Section'].isin(selected_sections)) &
+    (df['Price'] >= price_range[0]) &
+    (df['Price'] <= price_range[1])
+]
 st.sidebar.markdown('''
 ---
 ''')
