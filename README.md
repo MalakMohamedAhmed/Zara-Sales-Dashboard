@@ -4,6 +4,6 @@ emoji: 🚀
 colorFrom: red
 colorTo: red
 sdk: streamlit
-app_file: Zara_Dashboard/src/Dashboard.py
+app_file: Dashboard.py
 pinned: false
 ---
