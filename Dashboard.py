@@ -62,6 +62,8 @@ st.sidebar.markdown('''
 ''')
 
 st.header('Zara Sales Dashboard')
+st.divider()
+
 # Matrics
 # average revenue
 avg_rev = filtered_df['revenue'].mean()
