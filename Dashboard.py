@@ -167,3 +167,25 @@ with cat_mat_container:
         sns.countplot(data=filtered_df, x='Material', order=filtered_df['Material'].value_counts().index, ax=ax6)
         plt.xticks(rotation=45)
         st.pyplot(fig6)
+
+
+# --- Data Preview Section ---
+st.markdown("---") # Add a separator line
+with st.expander("🔍 View Filtered Raw Data"):
+    st.write(f"Showing {filtered_df.shape[0]} rows and {filtered_df.shape[1]} columns")
+    
+    # Display the dataframe with a search/filter feature
+    st.dataframe(
+        filtered_df, 
+        use_container_width=True, 
+        hide_index=True
+    )
+
+    # Optional: Add a download button for the filtered data
+    csv = filtered_df.to_csv(index=False).encode('utf-8')
+    st.download_button(
+        label="📥 Download Filtered Data as CSV",
+        data=csv,
+        file_name="zara_filtered_data.csv",
+        mime="text/csv",
+    )
