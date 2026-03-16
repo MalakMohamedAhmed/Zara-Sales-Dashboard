@@ -22,7 +22,6 @@ def load_data():
 df = pd.read_csv("Zara_sales_dataset_preprocessed.v1.csv")
 
 # sidebar
-st.sidebar.header('Zara Dashboard')
 
 # countries filter
 st.sidebar.header("Global Filters")
@@ -62,6 +61,7 @@ st.sidebar.markdown('''
 ---
 ''')
 
+st.sidebar.header('Zara Sales Dashboard')
 # Matrics
 # average revenue
 avg_rev = filtered_df['revenue'].mean()
