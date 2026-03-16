@@ -32,7 +32,6 @@ selected_countries = st.sidebar.multiselect(
     default=all_countries
 )
 
-st.divider()
 
 # Gender Filter
 all_sections = sorted(df['Section'].unique().tolist())
